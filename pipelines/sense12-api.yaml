@@ -1,5 +1,10 @@
 ---
 resources:
+- name: orchastrator
+  type: git
+  source:
+    uri: https://github.com/sense12/orchastration.git
+    branch: master
 - name: sense12-api
   type: git
   source:
@@ -10,6 +15,7 @@ jobs:
 - name: build-python
   public: true
   plan:
+  - get: orchastrator
   - get: sense12-api
     trigger: true
   - task: build-sense12-api
