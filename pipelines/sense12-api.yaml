@@ -1,0 +1,16 @@
+---
+resources:
+- name: sense12-api
+  type: git
+  source:
+    uri: https://github.com/sense12/sense12-api.git
+    branch: master
+
+jobs:
+- name: build-python
+  public: true
+  plan:
+  - get: sense12-api
+    trigger: true
+  - task: build-sense12-api
+    file: sense12-api/concourse/build.yaml

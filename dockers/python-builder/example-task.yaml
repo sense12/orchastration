@@ -1,0 +1,17 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: sense12/python-builder
+    tag: "0.1.0-alpha1"
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    alias make="make -f /files/Makefile"
+    ls -l
+    make build
